@@ -1,0 +1,21 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:local="using:AS_Desktop2.UserControls"
+			 mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="AS_Desktop2.UserControls.TreeDataView">
+	<Grid RowDefinitions="Auto, *">
+		<Border Name="PART_GridBorder">
+			<Grid Name="PART_GridHeader" />
+		</Border>
+
+		<Grid Name="PART_GridItems"
+			  Grid.Row="1">
+			<ScrollViewer HorizontalScrollBarVisibility="Disabled">
+				<local:TreeDataViewItemsPresenter Name="ItemsPresenter" 
+												  ItemsSource="{Binding $self.ItemsSource}" />
+			</ScrollViewer>
+		</Grid>
+	</Grid>
+</UserControl>

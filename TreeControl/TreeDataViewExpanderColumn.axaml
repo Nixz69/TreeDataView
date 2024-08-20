@@ -1,0 +1,62 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+			 xmlns:local="using:AS_Desktop2.UserControls"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="AS_Desktop2.UserControls.TreeDataViewExpanderColumn">
+	<UserControl.Resources>
+		<StreamGeometry x:Key="CollapsedGeometry">
+			M 1,0 10,10 l -9,10 -1,-1 L 8,10 -0,1 Z
+		</StreamGeometry>
+
+		<StreamGeometry x:Key="ExpandedGeometry">
+			M0,1 L10,10 20,1 19,0 10,8 1,0 Z
+		</StreamGeometry>
+		
+		<DataTemplate x:Key="ItemContainerTemplate">
+			<Grid Name="PART_ExpanderPanel"
+				  ColumnDefinitions="Auto,*">
+				<Border Name="PART_ExpanderBorder" 
+						Width="30"
+						Height="30">
+					<ToggleSwitch Name="PART_ExpanderCell"
+								  Focusable="False">
+						<ToggleSwitch.Styles>
+							<Style Selector="Border#OuterBorder">
+								<Setter Property="IsVisible" Value="False" />
+							</Style>
+							<Style Selector="Border#SwitchKnobBounds">
+								<Setter Property="IsVisible" Value="False" />
+							</Style>
+							<Style Selector="Canvas#PART_SwitchKnob">
+								<Setter Property="IsVisible" Value="False" />
+							</Style>
+						
+							<Style Selector="Path">
+								<Setter Property="Fill" Value="LightGray" />
+							
+								<Setter Property="RenderTransform" Value="scale(0.75, 0.75)" />
+							
+								<Setter Property="VerticalAlignment" Value="Center" />
+								<Setter Property="HorizontalAlignment" Value="Center" />
+							</Style>
+						</ToggleSwitch.Styles>
+					
+						<ToggleSwitch.OnContent>
+							<Path Data="{StaticResource ExpandedGeometry}" />
+						</ToggleSwitch.OnContent>
+						<ToggleSwitch.OffContent>
+							<Path Data="{StaticResource CollapsedGeometry}" />
+						</ToggleSwitch.OffContent>
+					</ToggleSwitch>
+				</Border>
+			</Grid>
+		</DataTemplate>
+
+		<DataTemplate x:Key="ItemTemplate">
+			<TextBlock Name="PART_TextCell"
+					   VerticalAlignment="Center" />
+		</DataTemplate>
+	</UserControl.Resources>
+</UserControl>
