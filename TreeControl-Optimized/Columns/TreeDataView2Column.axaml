@@ -1,0 +1,26 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="AS_Desktop2.UserControls.TreeDataView2Column">
+	<UserControl.Styles>
+		<Style Selector="Border#PART_BorderHeader">
+			<Setter Property="Background" Value="Transparent" />
+		</Style>
+
+		<Style Selector="Border#PART_BorderHeader[IsPointerOver=True]">
+			<Setter Property="Background" Value="#2bffffff" />
+		</Style>
+	</UserControl.Styles>
+	
+	<UserControl.ContentTemplate>
+		<DataTemplate>
+			<Border Name="PART_BorderHeader"
+					Padding="7.5">
+				<TextBlock Text="{Binding $parent[UserControl].Header}"
+						   VerticalAlignment="Center" />
+			</Border>
+		</DataTemplate>
+	</UserControl.ContentTemplate>
+</UserControl>

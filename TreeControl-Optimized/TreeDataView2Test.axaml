@@ -1,0 +1,43 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:local="using:AS_Desktop2.UserControls"
+			 mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="AS_Desktop2.UserControls.TreeDataView2Test">
+	<local:TreeDataView2 Name="TreeDataView2Control">
+		<local:TreeDataView2.Columns>
+			<local:TreeDataView2ExpanderColumn Header="Expander"
+											   ColumnWidth="2.5*"
+											   InnerItemsSource="{Binding Items}"
+											   IsExpanded="{Binding IsExpanded}">
+				<local:TreeDataView2ExpanderColumn.CellContentTemplate>
+					<DataTemplate>
+						<StackPanel Orientation="Horizontal"
+									Spacing="5">
+							<Image Source="{Binding Image}"
+								   Width="25"
+								   Height="25" />
+							<TextBlock Text="{Binding DisplayText^}"
+									   VerticalAlignment="Center"/>
+						</StackPanel>
+					</DataTemplate>
+				</local:TreeDataView2ExpanderColumn.CellContentTemplate>
+			</local:TreeDataView2ExpanderColumn>
+			<local:TreeDataView2TextColumn Header="Description"
+										   Binding="{Binding description}" />
+
+			 
+			<!--<local:TreeDataView2TextColumn Header="Id"
+										   Binding="{Binding ItemArray[0]}" />
+			<local:TreeDataView2TextColumn Header="ShortName"
+										   Binding="{Binding ItemArray[2]}" />
+			<local:TreeDataView2TextColumn Header="Description"
+										   ColumnWidth="2.5*"
+										   Binding="{Binding ItemArray[3]}" />-->
+			
+		</local:TreeDataView2.Columns>
+	</local:TreeDataView2>
+
+	<!-- ItemsSource="{Binding Items}" -->
+</UserControl>

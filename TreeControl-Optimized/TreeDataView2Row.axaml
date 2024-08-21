@@ -1,0 +1,26 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:local="using:AS_Desktop2.UserControls"
+			 mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="AS_Desktop2.UserControls.TreeDataView2Row"
+			 Height="30" MaxHeight="30">
+	<UserControl.Styles>
+		<Style Selector="local|TreeDataView2Row[IsPointerOver=False]">
+			<Setter Property="Background" Value="Transparent" />
+		</Style>
+
+		<Style Selector="local|TreeDataView2Row[IsPointerOver=True]">
+			<Setter Property="Background" Value="#2bffffff" />
+		</Style>
+
+		<Style Selector="local|TreeDataView2Row[IsSelected=True]">
+			<Setter Property="Background" Value="#a616a7ff" />
+		</Style>
+	</UserControl.Styles>
+
+	<Border Name="PART_BorderRow" Focusable="True">
+		<Grid Name="PART_GridCells" />
+	</Border>
+</UserControl>
